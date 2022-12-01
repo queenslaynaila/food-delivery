@@ -16,7 +16,9 @@ function App() {
 
         <Routes>
           <Route path="/testing" element={<h1>Test Route</h1>}/>
-          <Route path="/" element={<h1>Page Count: {count}</h1>}/>
+          <Route path="/" element={  <h1>Page Count: {count}</h1>}>
+
+          </Route>
         </Routes>
 
     </BrowserRouter>

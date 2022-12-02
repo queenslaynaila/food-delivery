@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show update destroy ]
 
+ 
 
   # GET /customers/1
   def show

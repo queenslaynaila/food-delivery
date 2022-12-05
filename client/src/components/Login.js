@@ -2,40 +2,12 @@ import React from 'react'
 
 export default function Login() {
   return (
-    <div className="col-sm-6">
-    <h2 className="mb-3">Login</h2>
-
-
-    <form >
-        <div className="mb-2">
-            <input
-                type="text"
-                className="form-control"
-                id="email"
-                placeholder="Username"
-
-                required
-            />
-        </div>
-        <div className="mb-2">
-            <input
-                type="password"
-                className="form-control"
-                id="password"
-                placeholder="Password"
-
-                required
-            />
-        </div>
-        <div>
-            <p className="my-3">
-                Don't have an account?{' '}
-                <a href="#/" className="text-decoration-none"
-                    >Sign up here</a>
-            </p>
-        </div>
-        <button type="submit" className="btn  btn-warning">Login</button>
-    </form>
-</div>
+    <>
+    <div class="container-sm">100% wide until small breakpoint</div>
+<div class="container-md">100% wide until medium breakpoint</div>
+<div class="container-lg">100% wide until large breakpoint</div>
+<div class="container-xl">100% wide until extra large breakpoint</div>
+<div class="container-xxl">100% wide until extra extra large breakpoint</div>
+</>
   )
 }

@@ -1,34 +1,10 @@
-.navbar {
-    border-bottom: 2px solid #E9EAEA;
-}
-.navbar-brand {
-    font-size: larger;
-    font-weight: bold;
-    color:  #ff9100;
-}
-.navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
-    color:#ff9100;
-}
 
-.login {
-    border: 2px solid #ff9100;
-    border-radius: 2px;
-    padding: 5px 10px 5px 10px;
-    color: #ff9100;
-}
-.login:hover, .login:active, .login:focus {
-    background-color: #ff9100;
-    color: white;
-}
-.signup {
-    background-color: #ff9100;
-    border: 2px solid #ff9100;
-    padding: 5px 10px 5px 10px;
-    color: white;
-}
-.signup:hover , .signup:active, .signup:focus {
-    color: #ff9100;
-    background-color: inherit;
-    border: 2px solid  #ff9100;
-    padding: 5px 10px 5px 10px;
+
+
+.navbar-brand h5{
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: -5px;
+    margin-bottom:0;
+    text-align: center;
 }

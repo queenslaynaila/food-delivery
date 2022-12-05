@@ -1,0 +1,43 @@
+
+.hero_title{
+   font-size: 2.5rem;
+   line-height: 55px;
+}
+.hero_title span{
+   color:#df2020;
+}
+.hero_content p {
+   font-size: 1rem;
+   line-height: 30px;
+   color:rgb(84, 82, 82);
+}
+.hero_btns button{
+   border:none;
+   outline:none;
+   padding: 7px 20px;
+   border-radius: 5px;
+   cursor: pointer;
+   font-weight: 600;
+}
+.order_btn{
+   background-color: #df2020;
+   color:#fff;
+   transition: 0.3s;
+}
+.order_btn:hover{
+   background: #212245;
+}
+.all_foods_btn{
+   background: transparent;
+   border:1px solid #df2020 !important ;
+   color:#df2020;
+}
+.all_foods_btn:hover{
+   background-color: #df2020;
+
+   color: #fff;
+}
+.feature_subtitle{
+   color: #df2020;
+   padding-top: 70px;
+}

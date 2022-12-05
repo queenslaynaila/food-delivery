@@ -24,7 +24,7 @@ export default function Navbar() {
                 <ul className='  navbar-nav fw-bold ms-auto mb-2 mb-lg-0 gap-5'>
 
                 <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
-                                <a className="nav-link login" href="#/" onClick={() => navigate("/login")}>
+                                <a className="nav-link login" href="#/" onClick={() => navigate("/restaurant")}>
                                     Restaurant
                                 </a>
                             </li>

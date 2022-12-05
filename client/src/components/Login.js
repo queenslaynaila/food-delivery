@@ -1,13 +1,95 @@
-import React from 'react'
+import {React, useEffect} from "react";
+import {useState} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
+let message
 
 export default function Login() {
-  return (
-    <>
-    <div class="container-sm">100% wide until small breakpoint</div>
-<div class="container-md">100% wide until medium breakpoint</div>
-<div class="container-lg">100% wide until large breakpoint</div>
-<div class="container-xl">100% wide until extra large breakpoint</div>
-<div class="container-xxl">100% wide until extra extra large breakpoint</div>
-</>
-  )
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [user, setUser] = useState('')
+
+    useEffect(() => {
+        if (location.state !== null) {
+            message = location.state.message
+            setSuccess(message)
+        }
+    })
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        const data = {
+            username: username,
+            password: password,
+        }
+
+        fetch('/customers', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('r', data)
+                if (data === null) {
+                    setError("Sign up failed. Try again")
+                } else if (data.id) {
+                    localStorage.setItem('user', JSON.stringify(data))
+                    navigate('/profile', {
+                        state: {
+                            message: "Login Success!"
+                        }
+                    })
+                    navigate(0)
+                } else {
+                    setError("Sign up failed. Try again")
+                }
+                setUserName('');
+                setPassword('');
+            })
+    }
+
+    return (
+        <div className="col-sm-6">
+            <h2 className="mb-3">Login</h2>
+            {error ? <div className="alert alert-danger" role="alert">{error}</div> : null}
+            {success ? <div className="alert alert-success" role="alert">{success}</div> : null}
+            <form onSubmit={handleSubmit}>
+                <div className="mb-2">
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="email"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUserName(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="mb-2">
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <p className="my-3">
+                        Don't have an account?{' '}
+                        <a href="#/" className="text-decoration-none"
+                           onClick={() => navigate("/restaurant")}>Sign up here</a>
+                    </p>
+                </div>
+                <button type="submit" className="btn btn-danger">Login</button>
+            </form>
+        </div>
+    )
 }

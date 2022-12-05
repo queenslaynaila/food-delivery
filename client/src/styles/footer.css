@@ -1,0 +1,72 @@
+.contact{
+	padding: 50px 15% 40px;
+}
+.main-contact{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+	gap: 2rem;
+}
+.contact-content h4{
+	font-size: 20px;
+	color: #302e29;
+	margin-bottom: 1.5rem;
+}
+.contact-content li{
+	margin-bottom: 16px;
+	list-style: none;
+}
+.contact-content li a{
+	display: block;
+	color: #302e29;
+	font-size: 15px;
+	font-weight: 500;
+	transition: all .38s ease;
+	text-decoration: none;
+}
+.contact-content li a:hover{
+	transform: translateX(10px);
+	color: #ff9100;
+}
+.last-text p{
+	text-align: center;
+	padding: 25px;
+	color: #302e29;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+
+.scroll-top{
+	position: fixed;
+	bottom: 2.2rem;
+	right: 2.2rem;
+}
+.scroll-top i{
+	padding: 8px;
+	font-size: 1.4rem;
+	color: #fff;
+	background: #ff9100;;
+	border-radius: 5rem;
+}
+
+
+@media (max-width: 1690px){
+	section{
+		padding: 70px 2%;
+		transition: .2s;
+	}
+	.contact{
+		padding: 70px 2%;
+		transition: .2s;
+	}
+
+}
+
+@media (max-width: 1290px){
+	section{
+		padding: 80px 2%;
+		transition: .2s;
+	}
+
+}
+
+

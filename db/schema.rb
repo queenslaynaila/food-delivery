@@ -49,11 +49,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_170627) do
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "restaurant_id"
+    t.integer "menu_id"
     t.date "order_date"
     t.float "total_amount"
+    t.float "delivery_fee"
     t.string "order_status"
     t.text "instructions"
-    t.text "delivery_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_170627) do
     t.string "image_url"
     t.time "open_time"
     t.time "closing_time"
+    t.integer "likes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_170627) do
   create_table "reviews", force: :cascade do |t|
     t.integer "restaurant_id"
     t.integer "customer_id"
-    t.integer "order_id"
+    t.string "title"
     t.text "comment"
     t.date "commented_on"
     t.boolean "is_complaint"

@@ -8,6 +8,7 @@ class CreateRestaurants < ActiveRecord::Migration[7.0]
       t.string :image_url
       t.time :open_time
       t.time :closing_time
+      t.integer :likes
 
       t.timestamps
     end

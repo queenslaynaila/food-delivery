@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: %i[ show update destroy ]
-
+  skip_before_action :authorized 
   # GET /menus
   def index
     @menus = Menu.all

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/foodcard.css'
+import '../styles/restaurantcard.css'
 export default function  Foodcard() {
   const menu =
     {
@@ -17,22 +17,31 @@ export default function  Foodcard() {
   return (
      <>
 
-       <div className='product_item'>
-         <div className='product_img'>
-            <img src={menu.image_url} className="w-50"></img>
+<div className="explore-card cur-po">
+      <div className="explore-card-cover">
+        <img
+          src={menu.image_url}
+          className="explore-card-image"
+          alt={menu.menu_name}
+        />
+        <div className="delivery-time">30</div>
 
-         </div>
-         <div className='product_content'>
-          <h5>
-            <Link to="/">{menu.menu_name}</Link>
-          </h5>
-          <div className='d-flex align-items-center justify-content-between'>
-            <span className='product_price'>$100</span>
-            <button className='addToCart_btn'>Add to cart</button>
+      </div>
+      <div className="res-row">
+        <div className="res-name">{menu.menu_name}</div>
+
+          <div className="res-rating absolute-center">
+            {menu.price} <i className="fi fi-sr-star absolute-center" />
           </div>
-         </div>
-       </div>
-      
+
+      </div>
+      <div className="res-row">
+
+        <div className="res-price">{menu.price}</div>
+      </div>
+
+    </div>
+
      </>
   )
 }

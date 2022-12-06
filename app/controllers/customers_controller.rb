@@ -1,16 +1,15 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show update destroy ]
-
+  before_action :authorize, only: [:show]
   # GET /customers
   def index
     @customers = Customer.all
-
     render json: @customers
   end
-  # GET /customers/1
+
+
   def show
      customer = Customer.find_by(id: session[:customer_id])
-     if customer
       render json: customer
      else
       render json: {error:"Not authorized"}, status: :unauthorized

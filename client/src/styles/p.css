@@ -1,0 +1,16 @@
+.resname{
+	font-weight: bold;
+}
+.reswrapper{
+	overflow: hidden;
+	position: relative;
+}
+
+.card{
+	cursor:pointer;
+    transition: 0.4s;
+}
+	.card:hover{
+		transform: translateY(-15px);
+	}
+

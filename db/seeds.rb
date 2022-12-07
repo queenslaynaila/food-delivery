@@ -54,7 +54,7 @@ Restaurant.create([
     description:'Our food is fingerlicking good',
     address:'Junction',
     food_type:'Fastfood',
-    image_url:'https://d2lev5xroqke9e.cloudfront.net/ke/view/a24046407e?width=2000&height=643',
+    image_url:'https://d1ralsognjng37.cloudfront.net/7a994894-7763-4cc6-a077-c0ae6c4d9439.jpeg',
     open_time: '8.00am',
     closing_time:'10:00pm'
   },

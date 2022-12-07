@@ -6,8 +6,11 @@ import { useState,useEffect } from 'react';
 import Restaurantcard from './components/Restaurantcard'
 import Foodcard from './components/ Foodcard';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Foodlist from './components/Foodlist';
+import Restaurantlist from './components/Restaurantlist';
 import Signup from './components/Signup';
+import Menulist from './components/Menulist';
+import Restaurant from './components/Restaurant';
+
 function App() {
   const [user,setUser] = useState(null)
   useEffect(()=>{
@@ -23,12 +26,13 @@ function App() {
     <BrowserRouter>
       <Navbar user={user} setUser={setUser}/>
         <Routes>
-          <Route path="/testing" element={<h1>Test Route</h1>}/>
+          <Route path="/testing" element={<Restaurant/>}/>
           <Route path="/" element={ <Home/>}/>
           <Route path='/login' element={<Login onLogin={setUser}/>}/>
-          <Route path='/restaurant' element={<Restaurantcard/>}/>
+          <Route path='/restaurant' element={<Restaurantlist/>}/>
+          <Route path='/restaurantcard' element={<Restaurantcard/>}/>
           <Route path='/food' element={<Foodcard/>}/>
-          <Route path='/foodlist' element={<Foodlist/>}/>
+          <Route path='/foodlist' element={<Menulist/>}/>
           <Route path='/signup' element={<Signup/>}/>
         </Routes>
       <Footer/>

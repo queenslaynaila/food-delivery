@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-
+import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
 export default function SignupClient() {
     const navigate = useNavigate()
     const url = 'http://localhost:8000/clientregistration'
@@ -32,7 +32,7 @@ export default function SignupClient() {
                 address: address
             }
             setError("")
-            fetch(url, {
+            fetch('/signup', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
@@ -63,37 +63,14 @@ export default function SignupClient() {
     }
 
     return (
-        <div className="col-sm-6">
+        <Container>
+            <div className="col-sm-6">
             <h2 className="mb-3">Sign up</h2>
             {error ? <div className="alert alert-danger" role="alert">{error}</div> : null}
             {success ? <div className="alert alert-success" role="alert">{success}</div> : null}
             <form onSubmit={handleSubmit}>
                 <div className="row mb-2">
-                    <div className="col">
-                        <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="col">
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="username"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
-                    </div>
-                </div>
-                <div className="row mb-2">
-                    <div className="col">
+                <div className="col">
                         <input
                             type="text"
                             className="form-control"
@@ -105,7 +82,7 @@ export default function SignupClient() {
                         />
                     </div>
                     <div className="col">
-                        <input
+                    <input
                             type="text"
                             className="form-control"
                             id="lastName"
@@ -121,10 +98,10 @@ export default function SignupClient() {
                         <input
                             type="text"
                             className="form-control"
-                            id="location"
-                            placeholder="Location"
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
+                            id="username"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(e) => setFirstName(e.target.value)}
                             required
                         />
                     </div>
@@ -132,24 +109,28 @@ export default function SignupClient() {
                         <input
                             type="text"
                             className="form-control"
-                            id="phonenumber"
-                            placeholder="Phone Number"
+                            id="email"
+                            placeholder="Email"
+                            value={lastName}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                </div>
+                <div className="row mb-2">
+                    <div className="col">
+                        <input
+
+                            className="form-control"
+                            id="location"
+                            placeholder="PhoneNumber"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="col">
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="address"
-                            placeholder="Address"
-                            value={address}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
-                            required
-                        />
-                    </div>
+
+                     
                 </div>
                 <div className="row mb-2">
                     <div className="col">
@@ -192,5 +173,6 @@ export default function SignupClient() {
                 <button type="submit" className="btn btn-danger">Sign up</button>
             </form>
         </div>
+        </Container>
     )
 }

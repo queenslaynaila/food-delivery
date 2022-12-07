@@ -48,17 +48,21 @@ export default function Navbar({user,setUser}) {
                             </li>
                 </ul>
                 <ul className="navbar-nav fw-bold ms-auto mb-2 mb-lg-0">
-                 <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
+                {user? <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
+                                <a className="nav-link login" href="#/" onClick={() => navigate("/cart")}>
+                                <i class='bx bxs-cart'></i> Cart
+                                </a>
+                            </li>: <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
                                 <a className="nav-link login" href="#/" onClick={() => navigate("/login")}>
                                     <i className="bi bi-person-fill"/> Login
                                 </a>
-                            </li>
+                            </li>}
 
 
                             {user ?  <li className="nav-item dropdown ms-sm-3 d-inline-flex">
                                         <a className="nav-link signup dropdown-toggle"
                                            href="#/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i className="bi bi-check2-square"/>{user.username}
+                                              <i className="bi bi-person-fill"/>{user.username}
                                         </a>
                                         <ul className="dropdown-menu">
                                             <li>

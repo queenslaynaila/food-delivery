@@ -3,14 +3,9 @@ import { useState,useEffect } from 'react'
  import '../styles/p.css'
  import Restaurantcard from './Restaurantcard'
  import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
-export default function Restaurantlist() {
-  const [menus,setMenus] = useState([])
-  useEffect(()=>{
-      fetch("/restaurants").then((r)=>{
-          r.json().then((res)=>setMenus(res))
-      })
-    },[])
+export default function Restaurantlist({menus}) {
 
+console.log(menus)
 
   return (
     <section className="pt-0">

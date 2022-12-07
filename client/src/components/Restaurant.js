@@ -1,15 +1,46 @@
-import React from 'react'
+ import React from 'react'
+ import { Card,CardImg,CardBody, CardTitle,CardText} from 'reactstrap'
+ import '../styles/l.css'
+ import { useState,useEffect } from 'react';
+ import Foodcard from './ Foodcard'
+ import { useParams,Link } from 'react-router-dom'
+export default function Restaurant({restaurants}) {
+  const params= useParams()
+  const reschosen = restaurants.find((res) => res.id === Number(params.id));
+ 
 
-export default function Restaurant() {
-  let img="https://d1ralsognjng37.cloudfront.net/7a994894-7763-4cc6-a077-c0ae6c4d9439.jpeg"
+
+  const data ="https://picsum.photos/900/180"
+
+
+
   return (
-    <div class="card mb-3">
-    <img class="card-img-top" src={img} alt="Card image cap"></img>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
+
+<>
+    <Card className="my-2">
+    <CardImg
+      alt="Card image cap"
+      src={data}
+      style={{
+        height: 180
+      }}
+      top
+      width="100%"
+    />
+    <CardBody>
+      <CardTitle tag="h5">
+       KFCC
+      </CardTitle>
+      <CardText>
+      Our food is fingerlicking good"
+      </CardText>
+
+    </CardBody>
+  </Card>
+
+
+
+</>
   )
 }
+

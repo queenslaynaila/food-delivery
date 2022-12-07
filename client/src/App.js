@@ -10,9 +10,11 @@ import Restaurantlist from './components/Restaurantlist';
 import Signup from './components/Signup';
 import Menulist from './components/Menulist';
 import Restaurant from './components/Restaurant';
+import Cart from './components/Cart';
 
 function App() {
   const [user,setUser] = useState(null)
+  const [menus,setMenus] = useState([])
   useEffect(()=>{
     fetch("/me").then((r)=>{
       if(r.ok){
@@ -20,7 +22,11 @@ function App() {
       }
     })
   },[])
-
+  useEffect(()=>{
+    fetch("/restaurants").then((r)=>{
+        r.json().then((res)=>setMenus(res))
+    })
+  },[])
 
   return (
     <BrowserRouter>
@@ -29,11 +35,14 @@ function App() {
           <Route path="/testing" element={<Restaurant/>}/>
           <Route path="/" element={ <Home/>}/>
           <Route path='/login' element={<Login onLogin={setUser}/>}/>
-          <Route path='/restaurant' element={<Restaurantlist/>}/>
-          <Route path='/restaurantcard' element={<Restaurantcard/>}/>
+          <Route path='/restaurant' element={<Restaurantlist menus={menus}/>}/>
+          <Route path='/restaurant/:id' element={<Restaurant restaurants={menus}/>}/>
+
+
           <Route path='/food' element={<Foodcard/>}/>
           <Route path='/foodlist' element={<Menulist/>}/>
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/cart' element={<Cart/>}/>
         </Routes>
       <Footer/>
     </BrowserRouter>

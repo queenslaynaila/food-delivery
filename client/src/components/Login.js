@@ -27,10 +27,13 @@ export default function Login({onLogin}) {
         .then((r)=>{
             setIsLoading(false)
             if(r.ok){
-                r.json().then((user)=>onLogin(user))
+                r.json().then((user)=>{
+                    onLogin(user)
+                    navigate('/')
+                })
 
             }else{
-                r.json().then((err)=>  setTimeout(() =>setErrors(['invalid username or password'])), 2000)
+                r.json().then((err) =>setErrors(['invalid username or password']))
 
             }
 

@@ -1,5 +1,5 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes  :name, :description, :address,:food_type,:image_url,:open_time,:closing_time
+  attributes :id, :name, :description, :address,:food_type,:image_url,:open_time,:closing_time
   has_many :menus , serializer: RestaurantMenuSerializer
   has_many :reviews, serializer: RestaurantReviewSerializer
 end

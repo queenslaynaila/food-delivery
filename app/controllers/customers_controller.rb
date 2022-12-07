@@ -11,9 +11,7 @@ class CustomersController < ApplicationController
   def show
      customer = Customer.find_by(id: session[:customer_id])
       render json: customer
-     else
-      render json: {error:"Not authorized"}, status: :unauthorized
-     end
+
   end
 
   # POST /customers
@@ -49,6 +47,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:firstname, :lastname, :username, :email, :password_digest, :phonenumber, :address, :status)
+      params.permit(:firstname, :lastname, :username, :email, :password_digest, :phonenumber, :address, :status)
     end
 end

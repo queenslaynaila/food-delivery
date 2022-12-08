@@ -2,17 +2,9 @@ import React from 'react'
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import Foodcard from './ Foodcard'
 import { useState,useEffect } from 'react';
-export default function Menulist() {
-    const [menus,setMenus] = useState([])
-    useEffect(()=>{
-        fetch("/menus").then((r)=>{
-
-            r.json().then((res)=>setMenus(res))
+export default function Menulist({menus} ) {
 
 
-        })
-      },[])
-      
   return (
     <section className="pt-0">
 

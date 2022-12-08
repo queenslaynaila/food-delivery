@@ -11,10 +11,19 @@ import Signup from './components/Signup';
 import Menulist from './components/Menulist';
 import Restaurant from './components/Restaurant';
 import Cart from './components/Cart';
-
+import Foodcloseup from './components/Foodcloseup';
 function App() {
   const [user,setUser] = useState(null)
   const [menus,setMenus] = useState([])
+  const [food,setFoods] = useState([])
+    useEffect(()=>{
+        fetch("/menus").then((r)=>{
+
+            r.json().then((res)=>setFoods(res))
+
+
+        })
+      },[])
   useEffect(()=>{
     fetch("/me").then((r)=>{
       if(r.ok){
@@ -27,6 +36,7 @@ function App() {
         r.json().then((res)=>setMenus(res))
     })
   },[])
+  console.log(menus)
 
   return (
     <BrowserRouter>
@@ -40,7 +50,9 @@ function App() {
 
 
           <Route path='/food' element={<Foodcard/>}/>
-          <Route path='/foodlist' element={<Menulist/>}/>
+          <Route path='/foodlist' element={<Menulist menus={food}/>}/>
+
+          <Route path='/foodlist/:id' element={<Foodcloseup menus={food}/>}/>
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/cart' element={<Cart/>}/>
         </Routes>

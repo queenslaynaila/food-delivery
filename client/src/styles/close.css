@@ -1,0 +1,109 @@
+.ProductDetail {
+    width: 70%;
+    margin: 2em auto 0 auto;
+}
+
+.pagetitle {
+    margin-bottom: .8em;
+}
+
+.Item {
+    display: flex;
+}
+
+.Item>div {
+    width: 50%;
+}
+
+.Description {
+    margin: 0 1.4em;
+    line-height: 3em;
+}
+
+
+
+.Description p {
+    font-size: 1.2rem;
+}
+
+.Description button {
+    margin-top: 1em;
+    margin-right: 1em;
+    padding: 8px 2em;
+
+
+    font-size: .9em;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+.productImage img {
+    width: 100%;
+}
+
+/* Update && Delete Buttons */
+
+.button {
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.update-delete {
+    margin-top: .5em;
+}
+
+.button1 {
+    background-color: rgb(111, 140, 201);
+}
+
+.button1 a {
+    text-decoration: none;
+    color: white;
+}
+
+.button2 {
+    background-color: rgb(223, 77, 77);
+}
+
+/* Review Section */
+
+.reviews {
+    margin-top: 1em;
+}
+
+.reviews h1 {
+    margin-bottom: .5em;
+}
+
+/* Media Queries */
+
+@media(max-width: 1024px) {
+    .Item {
+        flex-direction: column;
+    }
+
+    .Item>div {
+        width: 100%;
+    }
+
+    .Description {
+        margin: 0;
+        margin: 1em 0;
+        line-height: 2.5em;
+    }
+    .button {
+        margin: 4px 3px 4px 0;
+    }
+}

@@ -1,10 +1,12 @@
 import React from 'react'
 import '../styles/navbar.css'
 import {useNavigate} from "react-router-dom"
+import { useState, useEffect, useRef } from "react";
 
 import logo from "../assets/navlogo.png"
 
 export default function Navbar({user,setUser}) {
+    const headerRef = useRef(null);
    let navigate = useNavigate()
    function handleLogoutClick(e) {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -14,9 +16,24 @@ export default function Navbar({user,setUser}) {
       }
     });
   }
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("headershrink");
+      } else {
+        headerRef.current.classList.remove("headershrink");
+      }
+    });
+
+    return () => window.removeEventListener("scroll",null);
+  }, []);
+
   return (
-    <div>
-        <nav className="navbar navbar-expand-lg  ">
+    <div className="header" ref={headerRef}  >
+        <nav className="navbar navbar-expand-lg" >
         <div className="container col-sm-9">
             <a className="navbar-brand" href="#/"onClick={()=>{navigate('/')}} >
                <img src={logo} width="50" height="50" class="d-inline-block align-top" alt=""></img>

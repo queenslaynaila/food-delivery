@@ -8,12 +8,14 @@ export default function Menulist({menus} ) {
   return (
     <section className="pt-0">
 
-
-        <Row>
+   <Container>
+   <Row>
         {menus?menus.map(menu=> <Foodcard menu={menu}></Foodcard>):<p>bbbb</p>}
 
 
         </Row>
+   </Container>
+
 
 
 

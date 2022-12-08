@@ -2,12 +2,14 @@ import React from 'react'
 import '../styles/home.css'
 import order from '../assets/orderhomw.png'
 import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
+import {useNavigate} from "react-router-dom"
 import { Link } from 'react-router-dom'
 import Categorycard from './Categorycard'
 import step1 from '../assets/order.png'
 import step2 from '../assets/confirmorder.png'
 import step3 from '../assets/deliver.png'
 export default function Home() {
+  let navigate = useNavigate()
   const  orderflow = [
     {
     display:"Easy to order",
@@ -34,8 +36,8 @@ export default function Home() {
               </h1>
                <p>Happy Eating!</p>
                <div className='hero_btns d-flex align-items-center gap-5 mt-4'>
-                 <button className='order_btn d-flex align-items-center justify-content-between'>Restaurants</button>
-                 <button className='all_foods_btn align-items-center justify-content-between'>
+                 <button className='order_btn d-flex align-items-center justify-content-between' onClick={()=>navigate('/restaurant')}>Restaurants</button>
+                 <button className='all_foods_btn align-items-center justify-content-between' onClick={()=>navigate('/foodlist')}>
                    Menu
                  </button>
                </div>

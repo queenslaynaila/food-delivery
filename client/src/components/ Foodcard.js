@@ -27,7 +27,7 @@ export default function  Foodcard({menu }) {
           <Link  to={`/foodlist/${menu.id}`}>{menu.menu_name}</Link>
         </h5>
         <div className=" d-flex align-items-center justify-content-between ">
-          <span className="product__price">${menu.price}</span>
+          <span className="product__price">KES:{menu.price}</span>
           <button onClick={addToCart} className="addTOCart__btn"  >
            {ordered ? "ADDED":"ORDER"}
           </button>

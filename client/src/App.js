@@ -36,7 +36,7 @@ function App() {
         r.json().then((res)=>setMenus(res))
     })
   },[])
-  console.log(menus)
+  
 
   return (
     <BrowserRouter>

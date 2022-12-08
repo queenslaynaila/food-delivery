@@ -5,7 +5,7 @@ import { useState,useEffect } from 'react'
  import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 export default function Restaurantlist({menus}) {
 
-console.log(menus)
+ 
 
   return (
     <section className="pt-0">

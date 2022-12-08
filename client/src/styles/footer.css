@@ -4,7 +4,7 @@
 .main-contact{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-	gap: 2rem;
+	gap: 1rem;
 }
 .contact-content h4{
 	font-size: 20px;
@@ -12,7 +12,7 @@
 	margin-bottom: 1.5rem;
 }
 .contact-content li{
-	margin-bottom: 16px;
+	margin-bottom: 10px;
 	list-style: none;
 }
 .contact-content li a{
@@ -25,7 +25,7 @@
 }
 .contact-content li a:hover{
 	transform: translateX(10px);
-	color: #ff9100;
+	color: #e785a5;
 }
 .last-text p{
 	text-align: center;
@@ -35,18 +35,7 @@
 	letter-spacing: 1px;
 }
 
-.scroll-top{
-	position: fixed;
-	bottom: 2.2rem;
-	right: 2.2rem;
-}
-.scroll-top i{
-	padding: 8px;
-	font-size: 1.4rem;
-	color: #fff;
-	background: #ff9100;;
-	border-radius: 5rem;
-}
+
 
 
 @media (max-width: 1690px){
@@ -70,3 +59,6 @@
 }
 
 
+.footersec{
+	background-color: #df2020;
+}

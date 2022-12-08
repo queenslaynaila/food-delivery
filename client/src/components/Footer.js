@@ -1,8 +1,11 @@
 import React from 'react'
 import '../styles/footer.css'
+import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
 export default function Footer() {
   return (
-    <div>
+
+	  <div className='footersec'>
+	    <Container>
       <section class="contact" id="contact">
 		<div class="main-contact">
 			<div class="contact-content">
@@ -39,16 +42,14 @@ export default function Footer() {
 		</div>
 	</section>
 
-	<div class="last-text">
-		<p>© 2022 FoodFun. All Rights Reserved by Jema Queenslay</p>
-	</div>
+	 
 
 
-	<a href="#home" class="scroll-top">
-		<i class='bx bx-up-arrow-alt' ></i>
-	</a>
+        </Container>
+      </div>
 
-    </div>
+
+
   )
 }
 

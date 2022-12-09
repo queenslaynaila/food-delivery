@@ -36,14 +36,12 @@ Category.create([
 puts "printing customers"
 Customer.create([
   {
-  firstname:"Queenslay",
-  lastname:"Jema",
+
   username:"queenslayjema",
   email:"queenslayjema@gmail.com",
-  password:"queenslaynaila",
+  password:"q",
   phonenumber:"0713518356",
-  address:"Riara road",
-  status:"active"
+
 }
 ])
 puts "printing resta"
@@ -353,8 +351,10 @@ Order.create(
 Review.create(
   restaurant_id:"1",
   customer_id:"1",
-  comment:"Best meal ever",
-  is_complaint:"true",
-  is_praise:"false"
+  rating:5,
+  comment:"i came i ate im shocked and still eating.Fantastic",
+  likes:0,
+  commented_on:"3 daysa ago",
+   reviewer:"queenslayjema"
 
 )

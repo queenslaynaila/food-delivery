@@ -12,11 +12,16 @@ import Menulist from './components/Menulist';
 import Restaurant from './components/Restaurant';
 import Cart from './components/Cart';
 import Foodcloseup from './components/Foodcloseup';
+import Checkout from './components/Checkout';
 function App() {
-  const [user,setUser] = useState(null)
   const [menus,setMenus] = useState([])
   const [food,setFoods] = useState([])
   const [order,setOrders] = useState([])
+  useEffect(()=>{
+    fetch("/restaurants").then((r)=>{
+        r.json().then((res)=>setMenus(res))
+    })
+  },[])
     useEffect(()=>{
         fetch("/menus").then((r)=>{
 
@@ -25,6 +30,13 @@ function App() {
 
         })
       },[])
+
+      function handleOrders(childData){
+        
+        setOrders(order.concat(childData))
+      }
+      const [user,setUser] = useState(null)
+
   useEffect(()=>{
     fetch("/me").then((r)=>{
       if(r.ok){
@@ -32,15 +44,9 @@ function App() {
       }
     })
   },[])
-  useEffect(()=>{
-    fetch("/restaurants").then((r)=>{
-        r.json().then((res)=>setMenus(res))
-    })
-  },[])
 
-  function handleOrders(childData){
-    setOrders(order.concat(childData))
-  }
+
+
 
 
   return (
@@ -51,15 +57,16 @@ function App() {
           <Route path="/" element={ <Home />}/>
           <Route path='/login' element={<Login onLogin={setUser}/>}/>
           <Route path='/restaurant' element={<Restaurantlist menus={menus}/>}/>
-          <Route path='/restaurant/:id' element={<Restaurant restaurants={menus}/>}/>
+          <Route path='/restaurant/:id' element={<Restaurant restaurants={menus} user={user}/>}/>
 
 
           <Route path='/food' element={<Foodcard handleOrders={handleOrders} />}/>
           <Route path='/foodlist' element={<Menulist handleOrders={handleOrders} menus={food}/>}/>
 
           <Route path='/foodlist/:id' element={<Foodcloseup menus={food} handleOrders={handleOrders}/>}/>
-          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/signup' element={<Signup onLogin={setUser}/>}/>
           <Route path='/cart' element={<Cart order={order}/>}/>
+          <Route path='/checkout' element={<Checkout></Checkout>}></Route>
         </Routes>
       <Footer/>
     </BrowserRouter>

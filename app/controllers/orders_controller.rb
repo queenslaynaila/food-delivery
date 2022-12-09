@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show update destroy ]
-
+  
   # GET /orders
   def index
     @orders = Order.all

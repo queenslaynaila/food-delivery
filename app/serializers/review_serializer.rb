@@ -1,3 +1,3 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :restaurant_id, :customer_id, :comment, :is_complaint, :is_praise
+  attributes :id, :restaurant_id, :customer_id,:rating,:likes, :comment, :commented_on,:reviewer
 end

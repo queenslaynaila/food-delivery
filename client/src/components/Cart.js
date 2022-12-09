@@ -9,7 +9,11 @@ export default function Cart({order}) {
     let price = 20
     let quantity = 40
     let image01="https://d1ralsognjng37.cloudfront.net/7a994894-7763-4cc6-a077-c0ae6c4d9439.jpeg"
-    console.log(order)
+     function removeItem(item){
+
+      order.splice(order.findIndex(a => a.id === item.id) , 1)
+      console.log(order.count)
+     }
   return (
     <section>
     <Container>
@@ -38,7 +42,7 @@ export default function Cart({order}) {
                 <td className="text-center">{quantity}px</td>
                 <td className="text-center cart__item-del">
 
-                <i class='bx bx-trash'/>
+                <i class='bx bx-trash' onClick={()=>removeItem(item)}/>
 
                 </td>
               </tr>)
@@ -49,7 +53,7 @@ export default function Cart({order}) {
 
     <div className="mt-4">
                 <h6>
-                  Subtotal: $
+                  Subtotal: KES
                   <span className="cart__subtotal">900</span>
                 </h6>
                 <p>Taxes and shipping will calculate at checkout</p>

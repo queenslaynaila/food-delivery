@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[ show update destroy ]
-  skip_before_action :authorized 
+  skip_before_action :authorized
   # GET /restaurants
   def index
     @restaurants = Restaurant.all

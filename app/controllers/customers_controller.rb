@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show update destroy ]
-  before_action :authorize, only: [:show]
+  skip_before_action :authorized, only: [:create]
   # GET /customers
   def index
     @customers = Customer.all
@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      render json: @customer, status: :created, location: @customer
+      render json: @customer, status: :created
     else
       render json: @customer.errors, status: :unprocessable_entity
     end
@@ -47,6 +47,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.permit(:firstname, :lastname, :username, :email, :password_digest, :phonenumber, :address, :status)
+      params.permit(:username, :email, :password, :phonenumber)
     end
 end

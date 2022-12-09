@@ -14,6 +14,7 @@ export default function Navbar({user,setUser}) {
         setUser(null);
         navigate("/")
       }
+
     });
   }
   useEffect(() => {
@@ -49,31 +50,28 @@ export default function Navbar({user,setUser}) {
                 <ul className='  navbar-nav fw-bold ms-auto mb-2 mb-lg-0 gap-5'>
 
                 <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
+                                <a className="nav-link login" href="#/" onClick={() => navigate("/")}>
+                                    Home
+                                </a>
+                            </li>
+                            <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
                                 <a className="nav-link login" href="#/" onClick={() => navigate("/restaurant")}>
                                     Restaurant
                                 </a>
                             </li>
                             <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
                                 <a className="nav-link login" href="#/" onClick={() => navigate("/foodlist")}>
-                                    Menu
-                                </a>
-                            </li>
-                            <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
-                                <a className="nav-link login" href="#/" onClick={() => navigate("/login")}>
-                                    Help
+                                    Menus
                                 </a>
                             </li>
                 </ul>
                 <ul className="navbar-nav fw-bold ms-auto mb-2 mb-lg-0">
-                {user? <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
+                <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
                                 <a className="nav-link login" href="#/" onClick={() => navigate("/cart")}>
                                 <i class='bx bxs-cart'></i> Cart
                                 </a>
-                            </li>: <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
-                                <a className="nav-link login" href="#/" onClick={() => navigate("/login")}>
-                                    <i className="bi bi-person-fill"/> Login
-                                </a>
-                            </li>}
+                            </li>
+
 
 
                             {user ?  <li className="nav-item dropdown ms-sm-3 d-inline-flex">
@@ -95,8 +93,8 @@ export default function Navbar({user,setUser}) {
                                         </ul>
                                     </li>:
                                     <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
-                                        <a className="nav-link login" href="#/"  onClick={() => navigate("/signup")} >
-                                             <i className="bi bi-person-fill"/> Signup
+                                        <a className="nav-link login" href="#/"  onClick={() => navigate("/login")} >
+                                             <i className="bi bi-person-fill"/> login
                                         </a>
                                     </li>}
 

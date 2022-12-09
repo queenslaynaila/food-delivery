@@ -1,55 +1,82 @@
-.rescard{
-    object-fit: fill;
-    object-position:50% 50%;
-}
-.sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-
-    height: 100%;
-    overflow: auto;
-  }
-
-  .sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-  }
-
-  .sidebar a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-
-  .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  } 
-
-  /* div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
-  }
-
-/* .mainbar{
-    width:100%;
-    height: 100vh;
-    display: flex;
-    gap:70px
-
-}
-.sidebar{
-    width:20%
+ .topnav {
+  overflow: hidden;
+  border-bottom: 2px solid #df2020
 }
 
-.sidebar a {
-    text-decoration: none;
-    font-size: 18px;
-     color:black;
-    display:list-item;
-    padding:20px;
-} */
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #df2020;
+  color:white;
+}
+.search__widget,
+.sorting__widget select {
+  padding: 7px 15px;
+  border: 1px solid #fde4e4;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.search__widget input {
+  border: none;
+}
+
+.search__widget input:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .search__widget {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .search__widget input {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .sorting__widget select {
+    width: 100% !important;
+    font-size: 0.8rem;
+  }
+}
+
+.reviews-top {
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+.user-details {
+  align-items: center;
+  display: flex;
+}
+
+.avatar {
+  border-radius: 90px;
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+}
+h6 {
+  font-size: larger;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.reviews-form {
+  padding: 5px;
+  width: 50vw;
+  border-radius: 20px;
+}
+
+.form-container {
+  padding: 20px;
+  background: #eedfdf;
+  width: 60%;
+  border-radius: 20px;
+  margin: auto;
+}

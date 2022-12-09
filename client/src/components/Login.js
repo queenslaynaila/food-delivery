@@ -33,13 +33,12 @@ export default function Login({onLogin}) {
                 })
 
             }else{
-                r.json().then((err) =>setErrors(['invalid username or password']))
+                r.json().then((err) => setErrors(err.errors))
 
             }
 
         })
-        setUserName('')
-        setPassword('')
+
 
     }
 
@@ -86,7 +85,7 @@ export default function Login({onLogin}) {
                         <p className="my-3">
                             Don't have an account?{' '}
                             <a href="#/" className="text-decoration-none"
-                            onClick={() => navigate("/restaurant")}>Sign up here</a>
+                            onClick={() => navigate("/signup")}>Sign up here</a>
                         </p>
                     </div>
                     <button type="submit" className="btn btn-danger">Login</button>

@@ -10,6 +10,7 @@ export default function  Foodcard({handleOrders,menu }) {
 
 
   function addToCart(){
+    console.log(menu)
      setOrdered(!ordered)
      handleOrders(menu)
 

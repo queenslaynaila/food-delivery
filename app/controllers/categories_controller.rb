@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  skip_before_action :authorized 
+  skip_before_action :authorized
   # GET /categories
   def index
     @categories = Category.all

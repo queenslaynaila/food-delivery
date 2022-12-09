@@ -1,22 +1,32 @@
  import React from 'react'
- import { Card,CardImg,CardBody, CardTitle,CardText,Row,Col} from 'reactstrap'
+ import { Card,CardImg,CardBody, CardTitle,CardText,Row,Col,Container,CardSubtitle} from 'reactstrap'
  import '../styles/l.css'
+ import '../styles/restaurant.css'
  import { useState,useEffect } from 'react';
+
  import Foodcard from './ Foodcard'
- import { useParams,Link } from 'react-router-dom'
-import Menulist from './Menulist';
-export default function Restaurant({restaurants}) {
+
+ import { useParams } from 'react-router-dom'
+
+export default function Restaurant({restaurants,user}) {
+
+  let profile =  "https://images.pexels.com/photos/7129713/pexels-photo-7129713.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
    const params= useParams()
-  //  console.log(restaurants[0].menus[0])
-
-  const reschosen = restaurants.find((res) => res.id === Number(params.id));
+   const reschosen = restaurants.find((res) => res.id === Number(params.id));
    const menus = reschosen.menus
-   console.log(menus)
+   const reviewsres = reschosen.reviews
 
+  const [menures, setMenuRes] = useState(menus)
+   const [searchTerm, setSearchTerm] = useState("");
 
+   function handleChange(e){
+    setSearchTerm(e.target.value)
+    
+   }
   return (
 
     <>
+    <Container className='try'>
     <Card   className="my-2 ">
       <CardImg
         alt="Card image cap rescard"
@@ -39,30 +49,93 @@ export default function Restaurant({restaurants}) {
 
       </CardBody>
     </Card>
-      <div className='mainbar'>
-          <div className='sidebar'>
-            <h2>Categories</h2>
-            <a href='/'>Pizza</a>
-            <a href='/'>Fastfood</a>
-            <a href='/'>Drinks</a>
-            <a href='/'>Coffee</a>
-            <a href='/'>Chicken</a>
-            <a href='/'>Burgers</a>
-            <a href='/'>Snacks</a>
-            <a href='/'>Sharing</a>
-          </div>
-      <div className='content'>
-        <h2>Menus</h2>
-        <section className="pt-0">
-        <Row>
-      {menus ? menus.map((item)=>{
-         return <Foodcard menu={item}></Foodcard>
-      }):<h1>There are no menus for this restaurnt yet</h1>}
-      </Row>
-      </section>
-      </div>
-    </div>
+    <Col >
+    <div class="topnav">
+  <a  href="#home">ORDER ONLINE</a>
+  <a href="#review">REVIEW</a>
+  <a href="#photos">PHOTOS</a>
+  </div>
+    </Col>
 
+
+
+  <Row>
+            <Col lg="6" md="6" sm="6" xs="12">
+              <div className="search__widget d-flex align-items-center justify-content-between ">
+                <input
+                  type="text"
+                  placeholder="I'm looking for...."
+                  value={searchTerm}
+                  onChange={(e)=>handleChange(e)}
+                />
+                <span>
+                  <i class="ri-search-line"></i>
+                </span>
+              </div>
+            </Col>
+            <Col lg="6" md="6" sm="6" xs="12" className="mb-5">
+              <div className="sorting__widget text-end">
+                <select className="w-50">
+                  <option>Default</option>
+                  <option value="ascending">Sharing</option>
+                  <option value="descending">Fast-Food</option>
+                  <option value="high-price">Pizza</option>
+                  <option value="low-price">Drinks</option>
+                  <option value="low-price">Chicken</option>
+                </select>
+              </div>
+            </Col>
+            </Row>
+ <Row  >
+ {menus.length > 1 ? menus.map(menu=> <Foodcard menu={menu} ></Foodcard>):<p>THE RESTAURANT ABOVE DOES NOT HAVE A MENU YET</p>}
+ </Row>
+ <section id="review">
+  <h1>REVIEWS</h1>
+
+      <CardBody>
+        {reviewsres.length > 0 ? reviewsres.map(item=>( <div className="reviews-top">
+          <div className="user-details">
+            <CardImg
+              className="avatar"
+              src={
+                profile }
+              alt="user avatar"
+            />
+            <CardSubtitle className="mb-2 text-muted" tag="h6">
+              {item.reviewer}
+            </CardSubtitle>
+            {[...Array(item.rating)].map((star) => {
+        return (
+          <CardSubtitle tag="h5">⭐ </CardSubtitle>
+        );
+      })}
+
+          </div>
+          <div className="reviews-body">
+            <CardText>
+              {item.comment}
+            </CardText>
+          </div>
+          <CardText>
+
+            <p>{item.likes+'' + 'likes'}<i class='bx bx-like'></i></p>
+
+
+          </CardText>
+        </div>))
+       :<h1>THere are no reviews for this restaurant</h1>}
+
+
+      </CardBody>
+
+
+ </section>
+ <section id="photos">
+  <h1>MENU PHOTOS</h1>
+ </section>
+
+
+    </Container>
 
 
   </>

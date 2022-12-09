@@ -22,14 +22,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_170627) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
     t.string "username"
     t.string "email"
-    t.string "password_digest"
     t.string "phonenumber"
-    t.text "address"
-    t.string "status"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,11 +80,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_170627) do
   create_table "reviews", force: :cascade do |t|
     t.integer "restaurant_id"
     t.integer "customer_id"
-    t.string "title"
+    t.integer "rating"
+    t.integer "likes"
     t.text "comment"
-    t.date "commented_on"
-    t.boolean "is_complaint"
-    t.boolean "is_praise"
+    t.string "commented_on"
+    t.string "reviewer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

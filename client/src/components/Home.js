@@ -9,6 +9,7 @@ import step1 from '../assets/order.png'
 import step2 from '../assets/confirmorder.png'
 import step3 from '../assets/deliver.png'
 export default function Home() {
+
   let navigate = useNavigate()
   const  orderflow = [
     {

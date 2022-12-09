@@ -5,15 +5,22 @@ import { useState,useEffect } from 'react'
  import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 export default function Restaurantlist({menus}) {
 
- 
+
 
   return (
     <section className="pt-0">
-      <Row>
+<Container  className="bg "
+    fluid="sm">
+<Row  >
 
-      {menus.map(menu=> <Restaurantcard res={menu}/>)}
+{menus.map(menu=> <Restaurantcard res={menu}/>)}
 
-      </Row>
+</Row>
+</Container>
+
+
+
+
 
     </section>
 

@@ -3,18 +3,21 @@ import { Container, Row, Col } from "reactstrap";
 import '../styles/cart.css'
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
-export default function Cart() {
+export default function Cart({order}) {
   let navigate = useNavigate()
     let title = "QIEEMN"
     let price = 20
     let quantity = 40
     let image01="https://d1ralsognjng37.cloudfront.net/7a994894-7763-4cc6-a077-c0ae6c4d9439.jpeg"
+    console.log(order)
   return (
     <section>
     <Container>
       <Row>
       <Col lg="12">
-      <table className="table table-bordered">
+      {order.length === 0 ? (
+                <h5 className="text-center">Your cart is empty</h5>
+              ) : (<table className="table table-bordered">
                   <thead>
                     <tr>
                       <th>Image</th>
@@ -25,19 +28,25 @@ export default function Cart() {
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>
-      <td className="text-center cart__img-box">
-        <img src={image01} alt="" />
-      </td>
-      <td className="text-center">{title}</td>
-      <td className="text-center">${price}</td>
-      <td className="text-center">{quantity}px</td>
-      <td className="text-center cart__item-del">
-      <i class='bx bx-trash'></i>
-      </td>
-    </tr>
+                  {order.map((item)=>{
+                   return ( <tr>
+                <td className="text-center cart__img-box">
+                  <img src={item.image_url} alt="" />
+                </td>
+                <td className="text-center">{item.menu_name}</td>
+                <td className="text-center">${item.price}</td>
+                <td className="text-center">{quantity}px</td>
+                <td className="text-center cart__item-del">
+
+                <i class='bx bx-trash'/>
+
+                </td>
+              </tr>)
+                  })}
+
                   </tbody>
-    </table>
+    </table>)}
+
     <div className="mt-4">
                 <h6>
                   Subtotal: $

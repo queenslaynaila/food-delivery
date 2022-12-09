@@ -4,14 +4,15 @@ import '../styles/restaurantcard.css'
 import { useState,useEffect } from 'react';
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import { useNavigate } from 'react-router-dom';
-export default function  Foodcard({menu }) {
+export default function  Foodcard({handleOrders,menu }) {
   let navigate = useNavigate()
   const [ordered, setOrdered] = useState(false)
 
 
   function addToCart(){
-    console.log(menu)
      setOrdered(!ordered)
+     handleOrders(menu)
+
 
   }
   return (

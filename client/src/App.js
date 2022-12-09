@@ -16,6 +16,7 @@ function App() {
   const [user,setUser] = useState(null)
   const [menus,setMenus] = useState([])
   const [food,setFoods] = useState([])
+  const [order,setOrders] = useState([])
     useEffect(()=>{
         fetch("/menus").then((r)=>{
 
@@ -36,25 +37,29 @@ function App() {
         r.json().then((res)=>setMenus(res))
     })
   },[])
-  
+
+  function handleOrders(childData){
+    setOrders(order.concat(childData))
+  }
+
 
   return (
     <BrowserRouter>
       <Navbar user={user} setUser={setUser}/>
         <Routes>
           <Route path="/testing" element={<Restaurant/>}/>
-          <Route path="/" element={ <Home/>}/>
+          <Route path="/" element={ <Home />}/>
           <Route path='/login' element={<Login onLogin={setUser}/>}/>
           <Route path='/restaurant' element={<Restaurantlist menus={menus}/>}/>
           <Route path='/restaurant/:id' element={<Restaurant restaurants={menus}/>}/>
 
 
-          <Route path='/food' element={<Foodcard/>}/>
-          <Route path='/foodlist' element={<Menulist menus={food}/>}/>
+          <Route path='/food' element={<Foodcard handleOrders={handleOrders} />}/>
+          <Route path='/foodlist' element={<Menulist handleOrders={handleOrders} menus={food}/>}/>
 
-          <Route path='/foodlist/:id' element={<Foodcloseup menus={food}/>}/>
+          <Route path='/foodlist/:id' element={<Foodcloseup menus={food} handleOrders={handleOrders}/>}/>
           <Route path='/signup' element={<Signup/>}/>
-          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/cart' element={<Cart order={order}/>}/>
         </Routes>
       <Footer/>
     </BrowserRouter>

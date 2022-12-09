@@ -2,10 +2,16 @@ import React from 'react'
 import { useParams,Link } from 'react-router-dom'
 import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
 import '../styles/close.css'
-export default function Foodcloseup({menus}) {
+export default function Foodcloseup({menus,handleOrders}) {
+    console.log(handleOrders)
   const params= useParams()
   const reschosen = menus.find((res) => res.id === Number(params.id));
-  console.log(reschosen)
+  function addToCart(){
+
+    handleOrders(reschosen)
+
+
+ }
   return (
     <div className='ProductDetail'>
     <h1 className='pagetitle'>{reschosen.restaurant.name}</h1>
@@ -19,7 +25,7 @@ export default function Foodcloseup({menus}) {
             <h2>KES:{reschosen.price} </h2>
             <p>{reschosen.description}</p>
             <div style={{gap:"5px"}}>
-                <button  className="addTOCart__btn"  >ORDER</button>
+                <button  onClick={addToCart} className="addTOCart__btn"  >ORDER</button>
                 <button  className="addTOCart__btn" >CHECKOUT</button>
             </div>
         </div>

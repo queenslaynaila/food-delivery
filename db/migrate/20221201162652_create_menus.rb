@@ -7,6 +7,7 @@ class CreateMenus < ActiveRecord::Migration[7.0]
       t.text :description
       t.string :price
       t.string :image_url
+      t.integer :likes
       t.string  :status  #available or not available
 
 

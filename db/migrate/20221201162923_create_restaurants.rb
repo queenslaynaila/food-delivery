@@ -6,9 +6,9 @@ class CreateRestaurants < ActiveRecord::Migration[7.0]
       t.string :address
       t.string :food_type
       t.string :image_url
-      t.time :open_time
-      t.time :closing_time
-      t.integer :likes
+      t.string :open_time
+      t.string :closing_time
+      t.integer :likes, default:0
 
       t.timestamps
     end

@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_170627) do
     t.text "description"
     t.string "price"
     t.string "image_url"
+    t.integer "likes"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -70,9 +71,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_170627) do
     t.string "address"
     t.string "food_type"
     t.string "image_url"
-    t.time "open_time"
-    t.time "closing_time"
-    t.integer "likes"
+    t.string "open_time"
+    t.string "closing_time"
+    t.integer "likes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -13,12 +13,12 @@ export default function Restaurantcard({res}) {
         <p className='resname'>{res.description}</p>
 
         <p class="card-text">
-        <small class="text-muted">Opens at:10:00am Closes at:8.00pm</small>
+        <small class="text-muted">Opens:{res.open_time} Closes at:{res.closing_time}</small>
 
         </p>
 
 
-        <p> 20 likes  <i class='bx bx-like'></i></p>
+        <p> {res.likes} likes <i class='bx bx-like'></i></p>
 
         <Link style={{textDecoration:"none"}} to={`/restaurant/${res.id}`}> VIEW MORE</Link>
 

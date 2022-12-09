@@ -80,3 +80,12 @@ h6 {
   border-radius: 20px;
   margin: auto;
 }
+.common__section {
+  background: linear-gradient(#212245b2, #212245b2),
+    url("https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC83Y2ZlOGYyZi04MzI2LTRkY2YtODZjYi1lYjgyNTNlMGE3ZTUuanBlZw==");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0px;
+}

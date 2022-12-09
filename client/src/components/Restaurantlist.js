@@ -13,7 +13,7 @@ export default function Restaurantlist({menus}) {
     fluid="sm">
 <Row  >
 
-{menus.map(menu=> <Restaurantcard res={menu}/>)}
+{menus.map(menu=> <Restaurantcard   res={menu}/>)}
 
 </Row>
 </Container>

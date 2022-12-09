@@ -21,34 +21,29 @@ export default function Restaurant({restaurants,user}) {
 
    function handleChange(e){
     setSearchTerm(e.target.value)
-    
+
    }
   return (
 
     <>
-    <Container className='try'>
-    <Card   className="my-2 ">
-      <CardImg
-        alt="Card image cap rescard"
-        src={reschosen.image_url}
-        style={{
-          height: 180
+    <section className="common__section">
+      <Container>
+        <h2 className="text-white">{reschosen.name}</h2>
 
-        }}
-        top
-        width="100%"
-      />
-      <CardBody>
-        <CardTitle tag="h5">
-           {reschosen.name}
-        </CardTitle>
-        <CardText>
+
+
+
+        <CardText  className="text-white">
            {reschosen.description}
         </CardText>
 
 
-      </CardBody>
-    </Card>
+     
+
+      </Container>
+    </section>
+    <Container className='try'>
+
     <Col >
     <div class="topnav">
   <a  href="#home">ORDER ONLINE</a>
@@ -91,6 +86,7 @@ export default function Restaurant({restaurants,user}) {
  </Row>
  <section id="review">
   <h1>REVIEWS</h1>
+
 
       <CardBody>
         {reviewsres.length > 0 ? reviewsres.map(item=>( <div className="reviews-top">

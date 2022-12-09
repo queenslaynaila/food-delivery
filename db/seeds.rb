@@ -52,11 +52,11 @@ Restaurant.create([
     description:'Our food is fingerlicking good',
     address:'Junction',
     food_type:'Fastfood',
-    image_url:'https://d1ralsognjng37.cloudfront.net/7a994894-7763-4cc6-a077-c0ae6c4d9439.jpeg',
+    image_url:'https://d1ralsognjng37.cloudfront.net/08390ba1-6a4c-41c1-8099-86431a276d0d.jpeg',
     open_time: '8.00am',
     closing_time:'10:00pm'
   },
-  {
+  { 
     name:'Chicken inn',
     description:'Luv dat Chickenn!',
     address:'Nairobi cbd',

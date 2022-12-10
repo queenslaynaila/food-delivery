@@ -57,7 +57,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar user={user} setUser={setUser}/>
+      <Navbar user={user} setUser={setUser} order={order}/>
         <Routes>
           <Route path="/testing" element={<Restaurant/>}/>
           <Route path="/" element={ <Home />}/>

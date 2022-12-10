@@ -50,13 +50,15 @@ export default function Restaurant({restaurants,user,handleRestaurant}) {
 
   }
   function handleChange(e){
-   setSearchTerm(e.target.value)
-   
-
+    setSearchTerm(e.target.value)
     let datay = menus.filter(menu=>(menu.menu_name).toLowerCase().includes(searchTerm.toLowerCase()))
-   setMenus(datay)
+    if (datay.length === 0)
+        {alert("The item does not exist")}
+    else {
+      setMenus(datay)
+    }
   }
-
+  
  return (
 
    <>

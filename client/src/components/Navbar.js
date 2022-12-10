@@ -5,7 +5,8 @@ import {   useEffect, useRef } from "react";
 
 import logo from "../assets/navlogo.png"
 
-export default function Navbar({user,setUser}) {
+export default function Navbar({user,setUser,order}) {
+
     const headerRef = useRef(null);
    let navigate = useNavigate()
    function handleLogoutClick(e) {
@@ -68,7 +69,9 @@ export default function Navbar({user,setUser}) {
                 <ul className="navbar-nav fw-bold ms-auto mb-2 mb-lg-0">
                 <li className="nav-item ms-sm-3 mb-sm-0 mb-2 d-inline-flex">
                                 <a className="nav-link login" href="#/" onClick={() => navigate("/cart")}>
-                                <i class='bx bxs-cart'></i> Cart
+                                   <i class='bx bxs-cart'></i>
+
+                                   Cart{order.length > 0 ? <sup>{order.length}</sup>:null}
                                 </a>
                             </li>
 

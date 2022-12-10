@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 export default function Cart({order}) {
   let navigate = useNavigate()
-   
-     function removeItem(item){
 
+     function removeItem(item){
       order.splice(order.findIndex(a => a.id === item.id) , 1)
       console.log(order.count)
      }

@@ -3,7 +3,7 @@ import Footer from './components/Footer'
 import Login from './components/Login';
 import Home from './components/Home'
 import { useState,useEffect } from 'react';
- 
+
 import Foodcard from './components/ Foodcard';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Restaurantlist from './components/Restaurantlist';
@@ -45,7 +45,13 @@ function App() {
     })
   },[])
 
-
+  function handleLikes(updatedRestaurant){
+    setMenus((menus) =>
+      menus.map((menu) => {
+        return  menu.id === updatedRestaurant.id ? updatedRestaurant : menu;
+      })
+    );
+  }
 
 
 
@@ -56,7 +62,7 @@ function App() {
           <Route path="/testing" element={<Restaurant/>}/>
           <Route path="/" element={ <Home />}/>
           <Route path='/login' element={<Login onLogin={setUser}/>}/>
-          <Route path='/restaurant' element={<Restaurantlist menus={menus}/>}/>
+          <Route path='/restaurant' element={<Restaurantlist onLike={handleLikes} user={user} menus={menus}/>}/>
           <Route path='/restaurant/:id' element={<Restaurant restaurants={menus} user={user}/>}/>
 
 

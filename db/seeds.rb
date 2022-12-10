@@ -349,14 +349,15 @@ Order.create(
   restaurant_id:1,
   total_amount:900
 )
-
+puts 'printing revuews'
 Review.create(
   restaurant_id:"1",
   customer_id:"1",
-  rating:5,
+
   comment:"i came i ate im shocked and still eating.Fantastic",
   likes:0,
-  commented_on:"3 daysa ago",
-   reviewer:"queenslayjema"
+  commented_on:"3 days ago",
+   reviewer:"queenslayjema",
+   rating:5
 
 )

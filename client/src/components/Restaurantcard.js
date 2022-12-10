@@ -1,9 +1,29 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import {  Col} from "reactstrap";
 import { Link } from 'react-router-dom'
-export default function Restaurantcard({res}) {
+export default function Restaurantcard({res,onLike,user }) {
 
 
+
+
+function handleClick(){
+  if (user){
+    let likeObject ={likes:res.likes+1}
+
+    fetch(`restaurants/${res.id}`, {
+         method: `PATCH`,
+         body: JSON.stringify(likeObject),
+         headers: { 'Content-type': `application/json; charset=UTF-8` },
+       }).then((response) => response.json())
+       .then((res)=>onLike(res))
+
+  } else
+  alert ("LOG IN TO LIKE")
+
+
+
+
+}
   return (
     <Col lg="3" md="4" sm="6" xs="6"  className="mt-5">
     <div className="card border-light " style={{width:"18rem"}}>
@@ -18,8 +38,8 @@ export default function Restaurantcard({res}) {
         </p>
 
 
-        <p> {res.likes} likes <i class='bx bx-like'></i></p>
-
+        <p>{res.likes} <i class='bx bx-like'></i></p>
+          <button onClick={handleClick}>LIKE</button>
         <Link style={{textDecoration:"none"}} to={`/restaurant/${res.id}`}> VIEW MORE</Link>
 
 

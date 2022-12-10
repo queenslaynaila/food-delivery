@@ -1,3 +1,4 @@
+
 puts "printing catefgories"
 Category.create([
   {
@@ -43,9 +44,9 @@ Customer.create([
   phonenumber:"0713518356",
 
 
-} 
+}
 ])
-puts "printing resta"
+puts "printing restaurants"
 
 Restaurant.create([
   {

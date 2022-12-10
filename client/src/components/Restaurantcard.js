@@ -38,8 +38,8 @@ function handleClick(){
         </p>
 
 
-        <p>{res.likes} <i class='bx bx-like'></i></p>
-          <button onClick={handleClick}>LIKE</button>
+        <p>{res.likes} <i onClick={handleClick} class='bx bx-like'></i></p>
+         
         <Link style={{textDecoration:"none"}} to={`/restaurant/${res.id}`}> VIEW MORE</Link>
 
 

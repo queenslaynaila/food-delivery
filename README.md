@@ -1,24 +1,42 @@
-# README
+ # PROJECT NAME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+FOODPLUS
+ ## Table of Contents
 
-Things you may want to cover:
+1. [Description](#description)
+2. [Technologies used](#technology-used)
+3. [Setup](#setup)
+4. [How to use the website](#how-to-use-the-website)
+5. [Licence](#licence)
+6. [AuthorS info](#authorS-info)
 
-* Ruby version
 
-* System dependencies
+# DESCRIPTION
 
-* Configuration
+ The main goal of this project is to provide food ordering services for a user
 
-* Database creation
+## TECHNOLOGY USED
+    Project is created with:
+            -Rails for backend
+            -React for the frontend
+            -React strap and Boostrap ui for the styling
 
-* Database initialization
+## INSTALLATION
+ Run instalations on the backend first
 
-* How to run the test suite
+ ```
+ bundle install
+ rails db:reset
+ rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+In another tab run the following for the frontend
+ ```
+ npm install --prefix client
+ npm start
 
-* Deployment instructions
+```
 
-* ...
+ ## SAMPLE USER
+ username: "queenslayjema"
+ password: "queenslaynaila"

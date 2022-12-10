@@ -39,7 +39,7 @@ Customer.create([
 
   username:"queenslayjema",
   email:"queenslayjema@gmail.com",
-  password:"q",
+  password:"queenslaynaila",
   phonenumber:"0713518356",
 
 }
@@ -56,7 +56,7 @@ Restaurant.create([
     open_time: '8.00am',
     closing_time:'10:00pm'
   },
-  { 
+  {
     name:'Chicken inn',
     description:'Luv dat Chickenn!',
     address:'Nairobi cbd',

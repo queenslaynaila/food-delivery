@@ -6,9 +6,16 @@ import {useNavigate} from "react-router-dom"
 export default function Cart({order}) {
 
   let navigate = useNavigate()
+
    const [subtotal,SetSubTotal] = useState(0)
 
+      if (order.length > 0){
+        let totalPrice = order.reduce(function (accumulator, item) {
+         return accumulator + (item.price)
 
+        }, 0)
+        console.log(totalPrice)
+      }
 
 
      function removeItem(item){

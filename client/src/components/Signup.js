@@ -1,8 +1,8 @@
-import {React, useEffect} from "react";
+import {React } from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
+
 
 export default function Login({onLogin}) {
     const navigate = useNavigate()
@@ -11,21 +11,20 @@ export default function Login({onLogin}) {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
 
 
 
 
     function handleSubmit(e) {
         e.preventDefault()
-        setIsLoading(true)
+
         fetch('/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({username,password})
         })
         .then((r)=>{
-            setIsLoading(false)
+          
             if(r.ok){
                 r.json().then((user)=>{
                     onLogin(user)
@@ -52,6 +51,7 @@ export default function Login({onLogin}) {
                 {errors?.map((err) => (
                     <div  class="alert alert-danger" role="alert" key={err}>{err}</div>
                 ))}
+
                 <form onSubmit={handleSubmit}>
                     <div className="mb-2">
                         <input
@@ -93,6 +93,6 @@ export default function Login({onLogin}) {
             </div>
 
 
-        
+
     )
 }

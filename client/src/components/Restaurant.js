@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card,CardImg,CardBody, CardTitle,CardText,Row,Col,Container,CardSubtitle} from 'reactstrap'
+import { CardImg,CardBody ,CardText,Row,Col,Container,CardSubtitle} from 'reactstrap'
 import '../styles/l.css'
 import '../styles/restaurant.css'
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 
 import Foodcard from './ Foodcard'
 
@@ -16,7 +16,7 @@ export default function Restaurant({restaurants,user}) {
   const menus = reschosen.menus
   const reviewsres = reschosen.reviews
 
- const [menures, setMenuRes] = useState(menus)
+
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleChange(e){
@@ -114,7 +114,7 @@ export default function Restaurant({restaurants,user}) {
          </div>
          <CardText>
 
-           <p>{item.likes+'' + 'likes'}<i class='bx bx-like'></i></p>
+           <p>{item.likes} likes<i class='bx bx-like'></i></p>
 
 
          </CardText>
@@ -126,7 +126,7 @@ export default function Restaurant({restaurants,user}) {
 
 
 </section>
- 
+
 
 
    </Container>

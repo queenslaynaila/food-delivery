@@ -1,9 +1,9 @@
 import React from 'react'
-import { useParams,Link } from 'react-router-dom'
-import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
+import { useParams } from 'react-router-dom'
+
 import '../styles/close.css'
 export default function Foodcloseup({menus,handleOrders}) {
-    console.log(handleOrders)
+
   const params= useParams()
   const reschosen = menus.find((res) => res.id === Number(params.id));
   function addToCart(){

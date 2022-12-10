@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/restaurantcard.css'
-import { useState,useEffect } from 'react';
-import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
-import { useNavigate } from 'react-router-dom';
+import { useState  } from 'react';
+import {  Col  } from "reactstrap";
+ 
 export default function  Foodcard({handleOrders,menu }) {
-  let navigate = useNavigate()
+
   const [ordered, setOrdered] = useState(false)
 
 

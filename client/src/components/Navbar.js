@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/navbar.css'
 import {useNavigate} from "react-router-dom"
-import { useState, useEffect, useRef } from "react";
+import {   useEffect, useRef } from "react";
 
 import logo from "../assets/navlogo.png"
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import '../styles/home.css'
 import order from '../assets/orderhomw.png'
-import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
+import {Container,Row,Col } from 'reactstrap'
 import {useNavigate} from "react-router-dom"
-import { Link } from 'react-router-dom'
+
 import Categorycard from './Categorycard'
 import step1 from '../assets/order.png'
 import step2 from '../assets/confirmorder.png'
@@ -46,7 +46,7 @@ export default function Home() {
           </Col>
           <Col lg="6" md="6">
              <div className='hero_img'>
-               <img src={order} className="w-100"></img>
+               <img src={order} className="w-100" alt="homeimage"></img>
              </div>
           </Col>
         </Row>

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/footer.css'
-import {Container,Row,Col,ListGroup,ListGroupItem} from 'reactstrap'
+import {Container } from 'reactstrap'
 export default function Footer() {
   return (
 
@@ -42,7 +42,7 @@ export default function Footer() {
 		</div>
 	</section>
 
-	 
+
 
 
         </Container>

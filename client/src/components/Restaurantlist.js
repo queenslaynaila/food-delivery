@@ -1,8 +1,8 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
+
  import '../styles/p.css'
  import Restaurantcard from './Restaurantcard'
- import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
+ import { Container, Row  } from "reactstrap";
 export default function Restaurantlist({menus}) {
 
 

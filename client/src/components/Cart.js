@@ -5,10 +5,7 @@ import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 export default function Cart({order}) {
   let navigate = useNavigate()
-    let title = "QIEEMN"
-    let price = 20
-    let quantity = 40
-    let image01="https://d1ralsognjng37.cloudfront.net/7a994894-7763-4cc6-a077-c0ae6c4d9439.jpeg"
+   
      function removeItem(item){
 
       order.splice(order.findIndex(a => a.id === item.id) , 1)
@@ -39,7 +36,7 @@ export default function Cart({order}) {
                 </td>
                 <td className="text-center">{item.menu_name}</td>
                 <td className="text-center">${item.price}</td>
-                <td className="text-center">{quantity}px</td>
+                <td className="text-center">1</td>
                 <td className="text-center cart__item-del">
 
                 <i class='bx bx-trash' onClick={()=>removeItem(item)}/>

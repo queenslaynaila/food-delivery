@@ -82,10 +82,65 @@ h6 {
 }
 .common__section {
   background: linear-gradient(#212245b2, #212245b2),
-    url("https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC83Y2ZlOGYyZi04MzI2LTRkY2YtODZjYi1lYjgyNTNlMGE3ZTUuanBlZw==");
+    url(https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC83Y2ZlOGYyZi04MzI2LTRkY2YtODZjYi1lYjgyNTNlMGE3ZTUuanBlZw==);
 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding: 80px 0px;
+}
+.top-pnav{
+  width: 80%;
+  height: 450px;
+  position: relative;
+  margin: 100px auto;
+}
+.btn-box{
+  display: flex;
+  border-bottom: 9 px solid #ccc;
+}
+
+.btn-box button{
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+.content{
+  position: relative;
+  transform: translateX(100%);
+  overflow: hidden ;
+}
+#SECTION2{
+  transform: translate(0px);
+}
+[data-tab-info] {
+  display: none;
+}
+
+.active[data-tab-info] {
+  display: block;
+}
+
+ 
+.tabs {
+
+  display: flex;
+  margin: 0;
+}
+
+.tabs span {
+
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.tabs span:hover {
+
+  cursor: pointer;
+  color: black;
 }

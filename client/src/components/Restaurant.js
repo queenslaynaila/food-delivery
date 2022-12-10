@@ -3,18 +3,53 @@ import { CardImg,CardBody ,CardText,Row,Col,Container,CardSubtitle} from 'reacts
 import '../styles/l.css'
 import '../styles/restaurant.css'
 import { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import Foodcard from './ Foodcard'
 
 import { useParams } from 'react-router-dom'
 
-export default function Restaurant({restaurants,user}) {
+export default function Restaurant({restaurants,user,handleRestaurant}) {
 
- let profile =  "https://images.pexels.com/photos/7129713/pexels-photo-7129713.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
   const params= useParams()
   const reschosen = restaurants.find((res) => res.id === Number(params.id));
   const menus = reschosen.menus
   const reviewsres = reschosen.reviews
+  const [rating,setRating] = useState(null)
+  const [comment,setComment] = useState(null)
+  function handlePost(){
+    console.log(rating)
+    if (!user){
+      alert ("Only logged in users can add reviews")
+    }else{
+      let data = {restaurant_id:reschosen.id,
+        customer_id:user.id ,
+        rating:rating,
+        likes:0,
+        comment:comment,
+        reviewer:user.username,
+        commented_on:new Date().toLocaleDateString()};
+        fetch("/reviews", {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(response => {
+          reviewsres.push(response)
+        })
+    }
+    console.log(reviewsres)
+
+
+
+
+  }
+  const [modal, setModal] = React.useState(false);
+  const toggle = () => setModal(!modal);
+
+ let profile =  "https://images.pexels.com/photos/7129713/pexels-photo-7129713.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+
 
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -86,6 +121,42 @@ export default function Restaurant({restaurants,user}) {
 </Row>
 <section id="review">
  <h1>REVIEWS</h1>
+ <div>
+ <Button color="danger" onClick={toggle}>NEW REVIEW</Button>
+        <Modal isOpen={modal} toggle={toggle} size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered  >
+          <ModalHeader  id="contained-modal-title-vcenter" toggle={toggle}>TELL US YOUR EXPERIENCE</ModalHeader>
+
+          <div class="modal-content">
+
+             <div class="card-body text-center" >
+
+                 <div class="comment-box ">
+                <p>How would you rate us?</p>
+                <div class="rating"  >
+                <input type="radio" onSelect={(e)=>setRating(e.target.value)}  name="rating" value="1" id="5"></input>
+                  <label for="5">1</label>
+                  <input type="radio" onClick={(e)=>setRating(e.target.value)} name="rating" value="2" id="4"></input>
+                  <label for="4">2</label>
+                   <input type="radio" onClick={(e)=>setRating(e.target.value)} name="rating" value="3" id="3"></input>
+                  <label for="3">3</label>
+                  <input type="radio"  onClick={(e)=>setRating(e.target.value)} name="rating" value="4" id="2"></input>
+                  <label for="2">4</label>
+                  <input type="radio" onClick={(e)=>setRating(e.target.value)} name="rating" value="4" id="1"></input>
+                  <label for="1">5</label>
+                </div>
+                <div class="comment-area"> <textarea onInput={(e)=>setComment(e.target.value)}  class="form-control" placeholder="what is your view?" rows="4"  ></textarea> </div>
+
+
+        </div></div></div>
+
+          <ModalFooter>
+            <Button color="danger"   onClick={handlePost}>SUBMIT REVIEW</Button>{' '}
+            <Button color="danger" onClick={ toggle}>EXIT</Button>
+          </ModalFooter>
+        </Modal>
+      </div>
 
 
      <CardBody>
@@ -107,6 +178,7 @@ export default function Restaurant({restaurants,user}) {
      })}
 
          </div>
+
          <div className="reviews-body">
            <CardText>
              {item.comment}
@@ -119,7 +191,8 @@ export default function Restaurant({restaurants,user}) {
 
          </CardText>
        </div>))
-      :<h1>THere are no reviews for this restaurant</h1>}
+      :<p>There are no reviews for this restaurant yet.Add one</p>}
+
 
 
      </CardBody>

@@ -63,7 +63,7 @@ function App() {
           <Route path="/" element={ <Home />}/>
           <Route path='/login' element={<Login onLogin={setUser}/>}/>
           <Route path='/restaurant' element={<Restaurantlist onLike={handleLikes} user={user} menus={menus}/>}/>
-          <Route path='/restaurant/:id' element={<Restaurant restaurants={menus} user={user}/>}/>
+          <Route path='/restaurant/:id' element={<Restaurant   restaurants={menus} user={user}/>}/>
 
 
           <Route path='/food' element={<Foodcard handleOrders={handleOrders} />}/>

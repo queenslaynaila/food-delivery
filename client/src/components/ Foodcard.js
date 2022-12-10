@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../styles/restaurantcard.css'
 import { useState  } from 'react';
 import {  Col  } from "reactstrap";
- 
+
 export default function  Foodcard({handleOrders,menu }) {
 
   const [ordered, setOrdered] = useState(false)
@@ -31,7 +31,7 @@ export default function  Foodcard({handleOrders,menu }) {
         <div className=" d-flex align-items-center justify-content-between ">
           <span className="product__price">KES:{menu.price}</span>
           <button onClick={addToCart} className="addTOCart__btn"  >
-           {ordered ? "ADDED":"ORDER"}
+            ORDER
           </button>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React ,{useState}from 'react'
 import {  Col} from "reactstrap";
 import { Link } from 'react-router-dom'
+ 
+
 export default function Restaurantcard({res,onLike,user }) {
 
 
@@ -38,8 +40,8 @@ function handleClick(){
         </p>
 
 
-        <p>{res.likes} <i onClick={handleClick} class='bx bx-like'></i></p>
-         
+        <p>{res.likes} <i style={{cursor:"pointer"}} onClick={handleClick} class='bx bx-like'></i></p>
+
         <Link style={{textDecoration:"none"}} to={`/restaurant/${res.id}`}> VIEW MORE</Link>
 
 

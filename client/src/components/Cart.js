@@ -1,10 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Container, Row, Col } from "reactstrap";
 import '../styles/cart.css'
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 export default function Cart({order}) {
+
   let navigate = useNavigate()
+   const [subtotal,SetSubTotal] = useState(0)
+
+
+
 
      function removeItem(item){
       order.splice(order.findIndex(a => a.id === item.id) , 1)
@@ -49,8 +54,8 @@ export default function Cart({order}) {
 
     <div className="mt-4">
                 <h6>
-                  Subtotal: KES
-                  <span className="cart__subtotal">900</span>
+                  Subtotal:
+                  <span className="cart__subtotal">{subtotal}</span>
                 </h6>
                 <p>Taxes and shipping will calculate at checkout</p>
                 <div className="cart__page-btn">

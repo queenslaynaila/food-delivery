@@ -42,6 +42,15 @@ Customer.create([
   password:"queenslaynaila",
   phonenumber:"0713518356",
 
+
+}
+{
+
+  username:"daphjema",
+  email:"daphjema@gmail.com",
+  password:"queenslay",
+  phonenumber:"0713518356",
+
 }
 ])
 puts "printing resta"

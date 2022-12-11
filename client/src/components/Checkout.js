@@ -1,7 +1,16 @@
-import React from 'react'
-
+import React,{useState,useEffect} from 'react'
+import { loadStripe } from "@stripe/stripe-js";
 export default function Checkout({order}) {
-  console.log(order)
+  const [subtotal,setSubTotal] = useState(0)
+
+  const sum = order.reduce(function(a,b){
+   return a + parseInt(b.price)
+ }, 0)
+ useEffect(() => {
+   setSubTotal(sum);
+ }, [sum])
+
+
 
   return (
 
@@ -98,7 +107,7 @@ export default function Checkout({order}) {
 
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (KES)</span>
-            <strong>20</strong>
+            <strong>{subtotal}</strong>
           </li>
         </ul>
 

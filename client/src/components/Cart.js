@@ -1,20 +1,22 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Container, Row, Col } from "reactstrap";
 import '../styles/cart.css'
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 export default function Cart({order}) {
-
   let navigate = useNavigate()
+   const [subtotal,setSubTotal] = useState(0)
 
-   const [subtotal,SetSubTotal] = useState(0)
- 
+   const sum = order.reduce(function(a,b){
+    return a + parseInt(b.price)
+  }, 0)
+  useEffect(() => {
+    setSubTotal(sum);
+  }, [sum]); //set our function as dependen
 
 
-     function removeItem(item){
-      order.splice(order.findIndex(a => a.id === item.id) , 1)
-      console.log(order.count)
-     }
+
+
   return (
     <section>
     <Container>
@@ -39,11 +41,11 @@ export default function Cart({order}) {
                   <img src={item.image_url} alt="" />
                 </td>
                 <td className="text-center">{item.menu_name}</td>
-                <td className="text-center">${item.price}</td>
+                <td className="text-center">KES {item.price}</td>
                 <td className="text-center">1</td>
                 <td className="text-center cart__item-del">
 
-                <i class='bx bx-trash' onClick={()=>removeItem(item)}/>
+                <i class='bx bx-trash'  />
 
                 </td>
               </tr>)

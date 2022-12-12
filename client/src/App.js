@@ -72,7 +72,7 @@ function App() {
           <Route path='/foodlist/:id' element={<Foodcloseup menus={food} handleOrders={handleOrders}/>}/>
           <Route path='/signup' element={<Signup onLogin={setUser}/>}/>
           <Route path='/cart' element={<Cart order={order}/>}/>
-          <Route path='/checkout' element={<Checkout order={order}></Checkout>}></Route>
+          <Route path='/checkout' element={<Checkout order={order}  user={user} ></Checkout>}></Route>
         </Routes>
       <Footer/>
     </BrowserRouter>

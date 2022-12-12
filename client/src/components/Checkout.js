@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import { loadStripe } from "@stripe/stripe-js";
-export default function Checkout({order}) {
+ 
+export default function Checkout({order,user}) {
+
   const [subtotal,setSubTotal] = useState(0)
 
   const sum = order.reduce(function(a,b){
@@ -10,7 +11,19 @@ export default function Checkout({order}) {
    setSubTotal(sum);
  }, [sum])
 
-
+ function postOrder(){
+  if(!user){
+    alert("log")
+  }else{
+    let t = {
+      customer_id:user.id,
+      restaurant_id:1,
+      menu_id:null,
+      total_amount:sum
+    }
+    console.log(t)
+  }
+ }
 
   return (
 
@@ -79,7 +92,7 @@ export default function Checkout({order}) {
               </div>
             </div>
 
-            <button class="btn btn-danger btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button onClick={(e)=>postOrder} class="btn btn-danger btn-lg btn-block" type="submit">Continue to checkout</button>
           </form>
         </div>
       </div>
